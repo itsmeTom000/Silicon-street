@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silicon street</title>
+    <link rel="stylesheet" href="./dist/output.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <style>
+        @font-face {
+            font-family: 'dune';
+            src: url('/fonts/Dune_Rise.woff') format('woff');
+        }
+    </style>
+</head>
+
+<body class="bg-custom">
+    <div class="main relative overflow-x-hidden">
+
+        <div class="user_div absolute w-[500px] h-screen -right-[500px] shadow-2xl bg-[#EDE6E3]">
+
+            <div class="p-10 w-full flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <i class="create_icon ri-login-box-line text-2xl cursor-pointer"></i>
+                    <i class="login_icon ri-account-box-line text-2xl cursor-pointer"></i>
+                </div>
+                <i class="ri-close-line close_icon text-5xl cursor-pointer"></i>
+            </div>
+
+            <div class="p-10 w-full h-auto">
+                <div class="w-full h-[200px] relative overflow-y-hidden">
+                    <div class="create_form w-full h-full absolute -top-[100%]">
+                        <form class="w-full h-full flex flex-col gap-4" action="/" method="post">
+                            <input type="text" placeholder="username" name="username"
+                                class="pl-5 w-full h-10 outline-none rounded-md input_create">
+                            <input type="text" placeholder="email" name="email"
+                                class="pl-5 w-full h-10 outline-none rounded-md input_create">
+                            <input type="password" placeholder="password" name="password"
+                                class="pl-5 w-full h-10 outline-none rounded-md input_create">
+                            <button class="pr-5 pl-5 bg-red-500 p-2 rounded-md w-20 input_create">create</button>
+                        </form>
+                    </div>
+                    <div class="login_form w-full h-full absolute z-0 -top-[100%]">
+                        <form class="w-full h-full flex flex-col gap-4">
+                            <input type="text" placeholder="email"
+                                class="pl-5 w-full h-10 outline-none rounded-md login_create">
+                            <input type="password" placeholder="password"
+                                class="pl-5 w-full h-10 outline-none rounded-md login_create">
+                            <button class="pr-5 pl-5 bg-red-500 p-2 rounded-md w-20 login_create">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Intro -->
+        <!-- <div class="intro h-full w-full flex justify-center items-center absolute z-20 bg-black ">
+            <div class="intro_text text-7xl flex justify-center items-center">
+                <span class="text-white font-custom">S</span>
+                <span class="text-white font-custom">I</span>
+                <span class="text-white font-custom">L</span>
+                <span class="text-white font-custom">I</span>
+                <span class="text-white font-custom">C</span>
+                <span class="text-white font-custom">O</span>
+                <span class="text-white font-custom">N</span>
+                <span>&nbsp;</span>
+                <span>&nbsp;</span>
+                <span class="text-white font-custom">S</span>
+                <span class="text-white font-custom">T</span>
+                <span class="text-white font-custom">R</span>
+                <span class="text-white font-custom">E</span>
+                <span class="text-white font-custom">E</span>
+                <span class="text-white font-custom">T</span>
+            </div>
+        </div> -->
+
+        <div class="main_2 h-screen">
+            <!-- Navigation -->
+            <div class="navigation flex items-center justify-around py-12">
+                <div class="navigation_logo">
+                    <!-- <img src="/photo/logo.png" alt="logo" class="h-20 w-20" /> -->
+                </div>
+                <div class="navigation_category flex gap-14">
+                    <div class="navigation_ele cursor-pointer">
+                        <a class="nav_ font-custom font-bold" href="/">Home</a>
+                        <!-- <h3>Home</h3> -->
+                        <div class="bottom_line w-0 h-0.5 bg-black" id="home_line"></div>
+                    </div>
+                    <div class="navigation_ele cursor-pointer">
+                        <a class="nav_ font-custom font-bold" href="/shop">Shop</a>
+                        <div class="bottom_line w-0 h-0.5 bg-black" id="shop_line"></div>
+                    </div>
+                    <div class="navigation_ele cursor-pointer">
+                        <a class="nav_ font-custom font-bold" href="/pre-build">pre-build</a>
+                        <div class="bottom_line w-0 h-0.5 bg-black" id="Pre_build_line"></div>
+                    </div>
+                    <div class="navigation_ele cursor-pointer">
+                        <a class="nav_ font-custom font-bold" href="/cart">cart</a>
+                        <div class="bottom_line w-0 h-0.5 bg-black" id="cart_line"></div>
+                    </div>
+                    <div class="navigation_ele cursor-pointer">
+                        <a class="nav_ font-custom font-bold" href="/contact">contact</a>
+                        <div class="bottom_line w-0 h-0.5 bg-black" id="contact_line"></div>
+                    </div>
+                </div>
+                <div class="navigation_icon cursor-pointer">
+                    <i class="icon ri-admin-line text-2xl"></i>
+                </div>
+            </div>
+
+            <!-- Hero img -->
+            <div class="hero w-full flex justify-center mt-24">
+                <div class="w-4/5 h-auto flex justify-between">
+                    <div class="img h-[700px] w-[550px] shadow-2xl overflow-hidden rounded-xl">
+                        <img src="photo/Ninja.jpeg" class="w-full h-full" alt="hero">
+                    </div>
+                    <div class="mr-32 mt-20 w-[700px]">
+                        <div class="title_1 flex">
+                            <i class="title-icon ri-arrow-drop-right-line text-[2rem] -translate-y-[11px]"></i>
+                            <h1 class="font-custom font-bold text-2xl">Power Up Your Workspace with Cutting-Edge
+                                Computer Accessories...</h1>
+                        </div>
+                        <div class="pt-5">
+                            <ol class="des font-sans text-[20px] pl-8 font-thin leading-none ">
+                                <li>SILICON STREET is committed to enhancing your productivity, creativity, and gaming
+                                    through premium computer peripherals.
+                                    Regardless of whether you are a professional, a gamer, or someone who appreciates
+                                    performance and comfort, we offer a
+                                    thoughtfully curated assortment of keyboards, mice, monitors, and accessories to
+                                    enrich your digital experience.</li>
+                                <li class="pt-2">We understand the diverse requirements of our clientele, ensuring that
+                                    our offerings
+                                    meet the highest standards of
+                                    quality and functionality.</li>
+                                <li class="pt-2">Our selection is tailored to support both casual users and dedicated
+                                    professionals
+                                    in achieving their goals.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category -->
+            <div class="w-full flex justify-center mt-28">
+                <div class="w-4/5 flex justify-between">
+                    <div class="category-div flex items-center justify-center">
+                        <i class="ri-arrow-right-s-fill pb-2 text-4xl"></i>
+                        <h1 class="font-custom font-bold text-5xl">CATEGORY</h1>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero 2 img -->
+            <div class="img_box w-full h-auto flex justify-center">
+                <div class="w-4/5 h-auto flex flex-wrap justify-between py-20">
+                    <div class="cat_img w-[480px] h-[300px] mb-10 overflow-hidden shadow-2xl">
+                        <img src="photo/cabinet.jpeg" class=" w-full h-full" alt="cabinet">
+                    </div>
+                    <div class="cat_img w-[480px] h-[300px] mb-10 overflow-hidden shadow-2xl">
+                        <img src="photo/gpu.jpeg" class="w-full h-full" alt="gpu">
+                    </div>
+                    <div class="cat_img w-[480px] h-[300px] mb-10 overflow-hidden shadow-2xl">
+                        <img src="photo/keyboard.jpeg" class="w-full h-full" alt="keyboard">
+                    </div>
+                    <div class="cat_img w-[480px] h-[300px] mb-10overflow-hidden shadow-2xl">
+                        <img src="photo/monitor.jpeg" class="w-full h-full object-cover" alt="monitor">
+                    </div>
+                    <div class="cat_img w-[480px] h-[300px] mb-10 overflow-hidden shadow-2xl">
+                        <img src="photo/aio.jpeg" class="w-full h-full object-cover" alt="aio">
+                    </div>
+                    <div class="cat_img w-[480px] h-[300px] mb-10 overflow-hidden shadow-2xl">
+                        <img src="photo/mouse.jpeg" class="w-full h-full object-cover" alt="mouse">
+                    </div>
+                </div>
+            </div>
+
+            <!-- new -->
+            <div class="w-full flex flex-col items-center mt-20">
+                <div class="new_box w-10/12 flex justify-center">
+                    <div class="new_des flex flex-col justify-center items-center">
+                        <h1 class="font-custom font-bold text-5xl gap-0">our newest Releases</h1>
+                    </div>
+                </div>
+                <div class="w-10/12 flex flex-wrap justify-between">
+                    <div class="new_img flex flex-col gap-20 mt-32 shadow-2xl">
+                        <div class="w-[450px] h-[600px] rounded-md">
+                            <div class="m-10 h-[390px] w-[370px]">
+                                <img src="photo/img.jpeg" alt="pc">
+                            </div>
+                            <div class="m-10 h-[100px] w-[370px]">
+                                <h1 class="text-2xl font-bold">Player : One</h1>
+                                <h3 class="opacity-75 pt-0">H5 Flow Gaming PC with RTX 3050 or RTX 4060 GPU</h3>
+                                <h1 class="pt-2 text-purple-600 text-xl">$800</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="new_img flex flex-col gap-20 mt-32 shadow-2xl">
+                        <div class="w-[450px] h-[600px] rounded-md">
+                            <div class="m-10 h-[390px] w-[370px]">
+                                <img src="photo/img_2.jpeg" alt="pc">
+                            </div>
+                            <div class="m-10 h-[100px] w-[370px]">
+                                <h1 class="text-2xl font-bold">Player : Two</h1>
+                                <h3 class="opacity-75 pt-0">H6 Flow RTX 4070 Gaming PC</h3>
+                                <h1 class="pt-2 text-purple-600 text-xl">$1,599</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="new_img flex flex-col gap-20 mt-32 shadow-2xl">
+                        <div class="w-[450px] h-[600px] rounded-md">
+                            <div class="m-10 h-[390px] w-[370px]">
+                                <img src="photo/img_3.jpeg" alt="pc">
+                            </div>
+                            <div class="m-10 h-[100px] w-[370px]">
+                                <h1 class="text-2xl font-bold">Player : Three</h1>
+                                <h3 class="opacity-75 pt-0">H7 Flow RTX 4070 Ti SUPER Gaming PC</h3>
+                                <h1 class="pt-2 text-purple-600 text-xl">$3,199</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Banner -->
+            <div class="banner_img w-full flex justify-center mt-32">
+                <div class="w-10/12 h-[600px] flex justify-between">
+                    <img src="photo/banner.jpeg" class="w-full h-full object-cover" alt="">
+                </div>
+            </div>
+
+            <!-- footer -->
+            <footer class="footer_1 mt-32 bg-black h-[300px] flex justify-center items-center">
+                <div class="w-4/5 h-full">
+                    <div class="flex justify-between mt-20 text-white">
+                        <div>
+                            <ul>
+                                <li class="font-custom font-bold">CONTACT</li>
+                                <li class="pt-4">Customer Support</li>
+                                <li>Submit a Request</li>
+                                <li>Support Center</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li class="font-custom font-bold">ABOUT SILICON STREET</li>
+                                <li class="pt-4">Company</li>
+                                <li>Founder Q & A</li>
+                                <li>Careers</li>
+                                <LI>Customer Reviews</LI>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li class="font-custom font-bold">COMMUNITY</li>
+                                <li class="pt-4">Our Discord</li>
+                                <li>Newsroom & Blog</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li class="font-custom font-bold">SOFTWARE</li>
+                                <li class="pt-4">CAM</li>
+                                <li>CAM Feedback</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li class="font-custom font-bold">ACCOUT</li>
+                                <li class="pt-4">Manage Your Account</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li class="font-custom font-bold">STORE</li>
+                                <li class="pt-4">PC Parts and Accessories</li>
+                                <li>Certified Refurbished Gaming PCs</li>
+                                <li>Find a Retailer</li>
+                                <LI>FAQ</LI>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+    integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+    integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="./js/animation.js"></script>
+
+</html>
