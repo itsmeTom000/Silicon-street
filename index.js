@@ -6,6 +6,7 @@ const path = require("path");
 const userModel = require("./models/userModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const db = require("./config/mongoose_connection");
 
 
 server.set("view engine", "ejs");
@@ -19,8 +20,8 @@ server.get("/", (req, res) => {
 })
 
 server.post("/", async (req, res) => {
-    // let user_2 = await userModel.findOne({ email: req.body.email });
-    // if (user_2) return re.status(400).send("User already exists");
+    let user_2 = await userModel.findOne({ email: req.body.email });
+    if (user_2) return res.status(400).send("User already exists");
     bcrypt.genSalt(10, async (err, salt) => {
         bcrypt.hash(req.body.password, salt, async (err, hash) => {
             let user = await userModel.create({
@@ -30,8 +31,8 @@ server.post("/", async (req, res) => {
             })
             let token = jwt.sign({ email: user.email, userid: user._id }, "secret")
             res.cookie("token", token);
+            return res.redirect("/");
         })
-        res.redirect("/");
     })
 })
 
