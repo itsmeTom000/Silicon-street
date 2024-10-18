@@ -4,10 +4,12 @@ const server = express();
 const path = require("path");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const db = require("./config/mongoose_connection");
+const db = require("./config/mongoose_connection.js");
 const { log } = require("console");
-const userModel = require("./models/userModel");
-const productModel = require("./models/productModel");
+const userModel = require("./models/userModel.js");
+const productModel = require("./models/productModel.js");
+const upload = require("./config/multer.js");
+const session = require('express-session');
 
 server.set("view engine", "ejs");
 server.use(express.static(path.join(__dirname, "public")));
@@ -15,26 +17,15 @@ server.use(express.urlencoded({ extended: true }));
 server.use(express.json());
 server.use(cookieParser());
 
-// Middleware to verify token and authenticate user
-const authenticateUser = (req, res, next) => {
-    const token = req.cookies.token;
-    if (!token) {
-        console.log("No token found, redirecting to login");
-        return res.redirect("/");
-    }
-
-    jwt.verify(token, "secret", (err, decoded) => {
-        if (err) {
-            console.log("Invalid token, redirecting to login");
-            return res.redirect("/");
-        }
-        req.user = decoded; // Store the decoded token data (email, userid) in req.user
-        next(); // Proceed to the next middleware/route handler
-    });
-};
+// server.use(session({
+//     secret: 'yourSecretKey', // Replace with a strong secret key
+//     resave: false,
+//     saveUninitialized: true,
+//     cookie: { secure: false }  // Set 'true' for HTTPS
+// }));
 
 server.get("/", (req, res) => {
-    res.render("index", { isMatch_: 0 });
+    res.render("index", { isMatch_: 0});
 })
 
 server.post("/create", async (req, res) => {
@@ -64,11 +55,15 @@ server.post("/login", async (req, res) => {
         if (!user) {
             console.log("User not found");
         }
+        // req.session.login_user = user.name;
         let isMatch = await bcrypt.compare(req.body.password, user.password);
         if (isMatch) {
             let token = jwt.sign({ email: user.email, userid: user._id }, "secret");
+            // req.session.login_email = user.email;
+
             res.cookie("token", token);
             console.log("Login success");
+
             res.render("index", { isMatch_: 1, name: user.name, email: user.email }); // Redirect on successful login
         } else {
             console.log("Invalid credentials");
@@ -78,10 +73,10 @@ server.post("/login", async (req, res) => {
     }
 });
 
-server.post("/login/user/product", async (req, res) => {
+server.post("/product", upload.single('img'), async (req, res) => {
     try {
-        let product = await productModel.create({
-            Image: req.body.img,
+        await productModel.create({
+            Image: req.file.buffer,
             name: req.body.productName,
             detail_1: req.body.detail_1,
             detail_2: req.body.detail_2,
@@ -90,12 +85,15 @@ server.post("/login/user/product", async (req, res) => {
             detail_5: req.body.detail_5,
             price: req.body.price
         });
-        console.log(product);
-        res.redirect("/");
+        // console.log(product);
+        // res.redirect("/");
+        // res.json({ isMatch_: 1 });
+        return res.render("index", { isMatch_: 1, name: null, email: null });
     } catch (err) {
         console.log(err.message);
     }
 });
+
 
 server.get("/logout", (req, res) => {
     // Clear the authentication cookie

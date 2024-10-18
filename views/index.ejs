@@ -30,8 +30,8 @@
 
             <div class="p-10 w-full h-auto">
                 <div class="w-full h-[600px] relative overflow-y-hidden">
-                    <% if(isMatch_ == 0){%>
 
+                    <% if(isMatch_==0){%>
                         <div class="create_form w-full h-full absolute -top-[100%]">
 
                             <form class="w-full h-full flex flex-col gap-4" action="/create" method="post">
@@ -74,9 +74,9 @@
                             </div>
                             <div class="w-full h-[600px] flex flex-col justify-center p-6">
                                 <h1>Add product</h1>
-                                <form class="w-full h-full flex flex-col gap-2 pt-3" action="/login/user/product" method="post">
-                                    <input type="text" placeholder="Product img" name="img"
-                                        class="w-full pl-5 h-8 outline-none rounded-md ">
+                                <form class="w-full h-full flex flex-col gap-2 pt-3" action="/product" method="post"
+                                    enctype="multipart/form-data">
+                                    <input type="file" name="img" class="w-full h-8 outline-none">
                                     <input type="text" placeholder="Product name" name="productName"
                                         class="w-full pl-5 h-8 outline-none rounded-md ">
                                     <input type="text" placeholder="detail_1" name="detail_1"
@@ -144,7 +144,7 @@
                     <div class="navigation_ele cursor-pointer">
                         <a class="nav_ font-custom font-bold" href="/cart">cart</a>
                         <div class="bottom_line w-0 h-0.5 bg-black" id="cart_line"></div>
-                    </div>                    
+                    </div>
                 </div>
                 <div class="navigation_icon cursor-pointer">
                     <i class="icon ri-admin-line text-2xl"></i>

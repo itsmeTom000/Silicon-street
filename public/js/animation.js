@@ -1,4 +1,4 @@
-const text = gsap.timeline({ repeat: 0 });
+const text = gsap.timeline();
 function introAnimation() {
     text.to("body", {
         overflow: "hidden"
