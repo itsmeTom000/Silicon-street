@@ -29,27 +29,72 @@
             </div>
 
             <div class="p-10 w-full h-auto">
-                <div class="w-full h-[200px] relative overflow-y-hidden">
-                    <div class="create_form w-full h-full absolute -top-[100%]">
-                        <form class="w-full h-full flex flex-col gap-4" action="/" method="post">
-                            <input type="text" placeholder="username" name="username"
-                                class="pl-5 w-full h-10 outline-none rounded-md input_create">
-                            <input type="text" placeholder="email" name="email"
-                                class="pl-5 w-full h-10 outline-none rounded-md input_create">
-                            <input type="password" placeholder="password" name="password"
-                                class="pl-5 w-full h-10 outline-none rounded-md input_create">
-                            <button class="pr-5 pl-5 bg-red-500 p-2 rounded-md w-20 input_create">create</button>
-                        </form>
-                    </div>
-                    <div class="login_form w-full h-full absolute z-0 -top-[100%]">
-                        <form class="w-full h-full flex flex-col gap-4">
-                            <input type="text" placeholder="email"
-                                class="pl-5 w-full h-10 outline-none rounded-md login_create">
-                            <input type="password" placeholder="password"
-                                class="pl-5 w-full h-10 outline-none rounded-md login_create">
-                            <button class="pr-5 pl-5 bg-red-500 p-2 rounded-md w-20 login_create">Login</button>
-                        </form>
-                    </div>
+                <div class="w-full h-[600px] relative overflow-y-hidden">
+                    <% if(isMatch_ == 0){%>
+
+                        <div class="create_form w-full h-full absolute -top-[100%]">
+
+                            <form class="w-full h-full flex flex-col gap-4" action="/create" method="post">
+                                <input type="text" placeholder="username" name="username"
+                                    class="pl-5 w-full h-10 outline-none rounded-md input_create">
+                                <input type="text" placeholder="email" name="email"
+                                    class="pl-5 w-full h-10 outline-none rounded-md input_create">
+                                <input type="password" placeholder="password" name="password"
+                                    class="pl-5 w-full h-10 outline-none rounded-md input_create">
+                                <button class="pr-5 pl-5 bg-red-500 p-2 rounded-md w-20 input_create">create</button>
+                            </form>
+
+                        </div>
+
+                        <div class="login_form w-full h-full absolute z-0 -top-[100%]">
+
+                            <form class="w-full h-full flex flex-col gap-4" action="/login" method="post">
+                                <input type="text" placeholder="email" name="email"
+                                    class="pl-5 w-full h-10 outline-none rounded-md login_create">
+                                <input type="password" placeholder="password" name="password"
+                                    class="pl-5 w-full h-10 outline-none rounded-md login_create">
+                                <button class="pr-5 pl-5 bg-red-500 p-2 rounded-md w-20 login_create">Login</button>
+                            </form>
+
+                        </div>
+
+                        <%}else{%>
+                            <div class="w-full h-auto flex flex-col">
+                                <div class="pl-5 pt-5">
+                                    <h1 class="text-5xl font-custom">
+                                        <%=name%>
+                                    </h1>
+                                    <h1 class="text-xl pl-1">
+                                        <%=email%>
+                                    </h1>
+                                </div>
+                                <form class="h-full gap-4 pl-6" action="/logout">
+                                    <button class="text-red-500">Logout</button>
+                                </form>
+                            </div>
+                            <div class="w-full h-[600px] flex flex-col justify-center p-6">
+                                <h1>Add product</h1>
+                                <form class="w-full h-full flex flex-col gap-2 pt-3" action="/login/user/product" method="post">
+                                    <input type="text" placeholder="Product img" name="img"
+                                        class="w-full pl-5 h-8 outline-none rounded-md ">
+                                    <input type="text" placeholder="Product name" name="productName"
+                                        class="w-full pl-5 h-8 outline-none rounded-md ">
+                                    <input type="text" placeholder="detail_1" name="detail_1"
+                                        class="w-full pl-5 h-8 outline-none rounded-md ">
+                                    <input type="text" placeholder="detail_2" name="detail_2"
+                                        class="w-full pl-5 h-8 outline-none rounded-md ">
+                                    <input type="text" placeholder="detail_3" name="detail_3"
+                                        class="w-full pl-5 h-8 outline-none rounded-md ">
+                                    <input type="text" placeholder="detail_4" name="detail_4"
+                                        class="w-full pl-5 h-8 outline-none rounded-md ">
+                                    <input type="text" placeholder="detail_5" name="detail_5"
+                                        class="w-full pl-5 h-8 outline-none rounded-md ">
+                                    <input type="text" placeholder="price" name="price"
+                                        class="w-full pl-5 h-8 outline-none rounded-md login_create">
+                                    <button class="pr-5 pl-5 bg-red-500 p-2 rounded-md w-20">Add</button>
+                                </form>
+                            </div>
+                            <%}%>
                 </div>
             </div>
 
@@ -99,11 +144,7 @@
                     <div class="navigation_ele cursor-pointer">
                         <a class="nav_ font-custom font-bold" href="/cart">cart</a>
                         <div class="bottom_line w-0 h-0.5 bg-black" id="cart_line"></div>
-                    </div>
-                    <div class="navigation_ele cursor-pointer">
-                        <a class="nav_ font-custom font-bold" href="/contact">contact</a>
-                        <div class="bottom_line w-0 h-0.5 bg-black" id="contact_line"></div>
-                    </div>
+                    </div>                    
                 </div>
                 <div class="navigation_icon cursor-pointer">
                     <i class="icon ri-admin-line text-2xl"></i>
