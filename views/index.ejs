@@ -29,8 +29,7 @@
             </div>
 
             <div class="p-10 w-full h-auto">
-                <div class="w-full h-[600px] relative overflow-y-hidden">
-
+                <div class="w-full h-[900px] relative overflow-y-hidden">
                     <% if(isMatch_==0){%>
                         <div class="create_form w-full h-full absolute -top-[100%]">
 
@@ -46,7 +45,7 @@
 
                         </div>
 
-                        <div class="login_form w-full h-full absolute z-0 -top-[100%]">
+                        <div class="login_form w-full h-full absolute -top-[100%]">
 
                             <form class="w-full h-full flex flex-col gap-4" action="/login" method="post">
                                 <input type="text" placeholder="email" name="email"
@@ -60,7 +59,7 @@
 
                         <%}else{%>
                             <div class="w-full h-auto flex flex-col">
-                                <div class="pl-5 pt-5">
+                                <div class="pl-3 pt-5">
                                     <h1 class="text-5xl font-custom">
                                         <%=name%>
                                     </h1>
@@ -68,31 +67,53 @@
                                         <%=email%>
                                     </h1>
                                 </div>
-                                <form class="h-full gap-4 pl-6" action="/logout">
+                                <form class="h-full gap-4 pl-4" action="/logout">
                                     <button class="text-red-500">Logout</button>
                                 </form>
                             </div>
-                            <div class="w-full h-[600px] flex flex-col justify-center p-6">
-                                <h1>Add product</h1>
-                                <form class="w-full h-full flex flex-col gap-2 pt-3" action="/product" method="post"
-                                    enctype="multipart/form-data">
-                                    <input type="file" name="img" class="w-full h-8 outline-none">
-                                    <input type="text" placeholder="Product name" name="productName"
-                                        class="w-full pl-5 h-8 outline-none rounded-md ">
-                                    <input type="text" placeholder="detail_1" name="detail_1"
-                                        class="w-full pl-5 h-8 outline-none rounded-md ">
-                                    <input type="text" placeholder="detail_2" name="detail_2"
-                                        class="w-full pl-5 h-8 outline-none rounded-md ">
-                                    <input type="text" placeholder="detail_3" name="detail_3"
-                                        class="w-full pl-5 h-8 outline-none rounded-md ">
-                                    <input type="text" placeholder="detail_4" name="detail_4"
-                                        class="w-full pl-5 h-8 outline-none rounded-md ">
-                                    <input type="text" placeholder="detail_5" name="detail_5"
-                                        class="w-full pl-5 h-8 outline-none rounded-md ">
-                                    <input type="text" placeholder="price" name="price"
-                                        class="w-full pl-5 h-8 outline-none rounded-md login_create">
-                                    <button class="pr-5 pl-5 bg-red-500 p-2 rounded-md w-20">Add</button>
-                                </form>
+
+                            <div class="flex flex-col h-auto justify-center p-5 w-full">
+                                
+                                <div class="w-full h-full flex flex-col">
+                                    <div class="w-full flex items-center gap-5 pt-3">
+                                        <h1>Add product</h1>
+                                    </div>
+                                    <form class="w-full h-full flex flex-col gap-2 pt-3" action="/product" method="post"
+                                        enctype="multipart/form-data">
+                                        <input type="file" name="img" class="w-full h-8 outline-none">
+                                        <input type="text" placeholder="Product name" name="productName"
+                                            class="w-full pl-5 h-8 outline-none rounded-md ">
+                                        <input type="text" placeholder="detail_1" name="detail_1"
+                                            class="w-full pl-5 h-8 outline-none rounded-md ">
+                                        <input type="text" placeholder="detail_2" name="detail_2"
+                                            class="w-full pl-5 h-8 outline-none rounded-md ">
+                                        <input type="text" placeholder="detail_3" name="detail_3"
+                                            class="w-full pl-5 h-8 outline-none rounded-md ">
+                                        <input type="text" placeholder="detail_4" name="detail_4"
+                                            class="w-full pl-5 h-8 outline-none rounded-md ">
+                                        <input type="text" placeholder="detail_5" name="detail_5"
+                                            class="w-full pl-5 h-8 outline-none rounded-md ">
+                                        <input type="text" placeholder="price" name="price"
+                                            class="w-full pl-5 h-8 outline-none rounded-md login_create">
+                                        <button class="pr-5 pl-5 bg-red-500 p-2 rounded-md w-20">Add</button>
+                                    </form>
+                                </div>
+                                <div class="w-full h-full flex flex-col">
+                                    <div class="w-full flex items-center gap-5 pt-3">
+                                        <h1>Add pre-build</h1>
+                                    </div>
+                                    <form class="w-full h-full flex flex-col gap-2 pt-3" action="/pre-build" method="post"
+                                        enctype="multipart/form-data">
+                                        <input type="file" name="img" class="w-full h-8 outline-none">
+                                        <input type="text" placeholder="Product name" name="productName"
+                                            class="w-full pl-5 h-8 outline-none rounded-md ">
+                                        <input type="text" placeholder="detail_1" name="detail_1"
+                                            class="w-full pl-5 h-8 outline-none rounded-md ">
+                                        <input type="text" placeholder="price" name="price"
+                                            class="w-full pl-5 h-8 outline-none rounded-md login_create">
+                                        <button class="pr-5 pl-5 bg-red-500 p-2 rounded-md w-20">Add</button>
+                                    </form>
+                                </div>
                             </div>
                             <%}%>
                 </div>
@@ -165,17 +186,23 @@
                         </div>
                         <div class="pt-5">
                             <ol class="des font-sans text-[20px] pl-8 font-thin leading-none ">
-                                <li>SILICON STREET is committed to enhancing your productivity, creativity, and gaming
+                                <li>SILICON STREET is committed to enhancing your productivity, creativity, and
+                                    gaming
                                     through premium computer peripherals.
-                                    Regardless of whether you are a professional, a gamer, or someone who appreciates
+                                    Regardless of whether you are a professional, a gamer, or someone who
+                                    appreciates
                                     performance and comfort, we offer a
-                                    thoughtfully curated assortment of keyboards, mice, monitors, and accessories to
+                                    thoughtfully curated assortment of keyboards, mice, monitors, and
+                                    accessories to
                                     enrich your digital experience.</li>
-                                <li class="pt-2">We understand the diverse requirements of our clientele, ensuring that
+                                <li class="pt-2">We understand the diverse requirements of our clientele,
+                                    ensuring
+                                    that
                                     our offerings
                                     meet the highest standards of
                                     quality and functionality.</li>
-                                <li class="pt-2">Our selection is tailored to support both casual users and dedicated
+                                <li class="pt-2">Our selection is tailored to support both casual users and
+                                    dedicated
                                     professionals
                                     in achieving their goals.</li>
                             </ol>

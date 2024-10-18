@@ -666,6 +666,10 @@ video {
   height: 700px;
 }
 
+.h-\[900px\] {
+  height: 900px;
+}
+
 .h-auto {
   height: auto;
 }
@@ -875,10 +879,6 @@ video {
   padding: 1.25rem;
 }
 
-.p-6 {
-  padding: 1.5rem;
-}
-
 .py-12 {
   padding-top: 3rem;
   padding-bottom: 3rem;
@@ -905,12 +905,12 @@ video {
   padding-left: 0.75rem;
 }
 
-.pl-5 {
-  padding-left: 1.25rem;
+.pl-4 {
+  padding-left: 1rem;
 }
 
-.pl-6 {
-  padding-left: 1.5rem;
+.pl-5 {
+  padding-left: 1.25rem;
 }
 
 .pl-8 {

@@ -16,44 +16,7 @@
 </head>
 
 <body class="bg-custom">
-    <div class="main relative overflow-x-hidden">
-
-        <div class="user_div absolute w-[500px] h-screen -right-[500px] shadow-2xl bg-[#EDE6E3]">
-
-            <div class="p-10 w-full flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                    <i class="create_icon ri-login-box-line text-2xl cursor-pointer"></i>
-                    <i class="login_icon ri-account-box-line text-2xl cursor-pointer"></i>
-                </div>
-                <i class="ri-close-line close_icon text-5xl cursor-pointer"></i>
-            </div>
-
-            <div class="p-10 w-full h-auto">
-                <div class="w-full h-[200px] relative overflow-y-hidden">
-                    <div class="create_form w-full h-full absolute -top-[100%]">
-                        <form class="w-full h-full flex flex-col gap-4">
-                            <input type="text" placeholder="username"
-                                class="pl-5 w-full h-10 outline-none rounded-md input_create">
-                            <input type="text" placeholder="email"
-                                class="pl-5 w-full h-10 outline-none rounded-md input_create">
-                            <input type="password" placeholder="password"
-                                class="pl-5 w-full h-10 outline-none rounded-md input_create">
-                            <button class="pr-5 pl-5 bg-red-500 p-2 rounded-md w-20 input_create">create</button>
-                        </form>
-                    </div>
-                    <div class="login_form w-full h-full absolute z-0 -top-[100%]">
-                        <form class="w-full h-full flex flex-col gap-4">
-                            <input type="text" placeholder="email"
-                                class="pl-5 w-full h-10 outline-none rounded-md login_create">
-                            <input type="password" placeholder="password"
-                                class="pl-5 w-full h-10 outline-none rounded-md login_create">
-                            <button class="pr-5 pl-5 bg-red-500 p-2 rounded-md w-20 login_create">Login</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+    <div class="main relative overflow-x-hidden">      
 
         <div class="main_2 h-screen flex flex-col justify-between">
             <!-- Navigation -->
@@ -79,7 +42,7 @@
                     <div class="navigation_ele cursor-pointer">
                         <a class="nav_ font-custom font-bold" href="/cart">cart</a>
                         <div class="bottom_line w-0 h-0.5 bg-black" id="cart_line"></div>
-                    </div>                    
+                    </div>
                 </div>
                 <div class="navigation_icon cursor-pointer">
                     <i class="icon ri-admin-line text-2xl"></i>
@@ -97,7 +60,8 @@
                         <div
                             class="w-[735px] h-[300px] bg-[#EDE6E3] mb-10 p-5 flex justify-between shadow-lg rounded-md">
                             <div class=" h-full w-[250px] border-black shadow-2xl">
-                                <img src="data:image/png;base64,<%= product.Image.toString('base64') %>" class="object-cover w-full h-full" alt="">
+                                <img src="data:image/png;base64,<%= product.Image.toString('base64') %>"
+                                    class="object-cover w-full h-full" alt="">
                             </div>
                             <div class="h-full w-[420px] p-3">
                                 <h1 class="font-custom font-bold">
@@ -122,10 +86,11 @@
                                 </ul>
                                 <div class="flex pt-10 justify-between items-center">
                                     <h1 class="text-2xl text-purple-600">
-                                        <%= product.price %>
+                                        $<%= product.price %>
                                     </h1>
                                     <div class="gap-5 flex pr-2">
-                                        <button class="bg-yellow-400 p-2 rounded-md">Add to cart</button>
+                                        <a class="bg-yellow-400 p-2 rounded-md" href="/cart/<%= product._id %>">Add to
+                                            cart</a>
                                         <button class="bg-red-500 p-2 pr-5 pl-5 rounded-md">Buy</button>
                                     </div>
                                 </div>

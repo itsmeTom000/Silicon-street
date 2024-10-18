@@ -8,6 +8,7 @@ const db = require("./config/mongoose_connection.js");
 const { log } = require("console");
 const userModel = require("./models/userModel.js");
 const productModel = require("./models/productModel.js");
+const preBuildModel = require("./models/preBuildModel.js");
 const upload = require("./config/multer.js");
 const session = require('express-session');
 
@@ -25,7 +26,7 @@ server.use(cookieParser());
 // }));
 
 server.get("/", (req, res) => {
-    res.render("index", { isMatch_: 0});
+    res.render("index", { isMatch_: 0 });
 })
 
 server.post("/create", async (req, res) => {
@@ -85,32 +86,52 @@ server.post("/product", upload.single('img'), async (req, res) => {
             detail_5: req.body.detail_5,
             price: req.body.price
         });
-        // console.log(product);
-        // res.redirect("/");
-        // res.json({ isMatch_: 1 });
         return res.render("index", { isMatch_: 1, name: null, email: null });
     } catch (err) {
         console.log(err.message);
     }
 });
 
+server.post("/pre-build", upload.single('img'), async (req, res) => {
+    try {
+        await preBuildModel.create({
+            Image: req.file.buffer,
+            name: req.body.productName,
+            detail_1: req.body.detail_1,
+            price: req.body.price
+        });
+        return res.render("index", { isMatch_: 1, name: null, email: null });
+    } catch (err) {
+        console.log(err.message);
+    }
+});
 
 server.get("/logout", (req, res) => {
-    // Clear the authentication cookie
     res.clearCookie("token");
     console.log("Logout success");
     res.render("index", { isMatch_: 0 });
 });
-
 
 server.get("/shop", async (req, res) => {
     let products = await productModel.find();
     res.render("shop", { products });
 })
 
-server.get("/pre-build", (req, res) => {
-    res.render("pre-build");
+server.get("/pre-build", async (req, res) => {
+    let preBuild = await preBuildModel.find();
+    res.render("pre-build", { preBuild });
 })
+
+server.get("/cart", async (req, res) => {
+    res.render("cart");
+})
+
+// server.get("/cart/:id", async (req, res) => {
+//     let user = await userModel.findOne({ email: req.user.email });
+//     user.cart.push(req.params.id);
+//     await user.save();
+//     res.redirect("/shop");
+// })
 
 server.listen(3000, () => {
     console.log("Server running on port 3000");
